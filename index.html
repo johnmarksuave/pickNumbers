@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <script src="js/angular-1.4.5.min.js"></script>
+  <script src="js/index.js"></script>
+
+  <body>
+
+    <div ng-app="pickNumbers"
+         ng-controller="mainController"
+         ng-init="pickQuantity=3; matchType='EXACT'">
+
+      <form ng-submit="submit()">
+
+
+        <div style="float:left;">
+          <input type="radio"
+                 ng-model="pickQuantity"
+                 name="pickQuantity"
+                 id="pickThree"
+                 value="3" />
+          <span>Pick Three</span>
+        </div>
+
+        <div style="float:left;">
+          <input type="radio"
+                 ng-model="pickQuantity"
+                 name="pickQuantity"
+                 value="4"
+                 id="pickFour" />
+          <span>Pick Four</span>
+        </div>
+
+        <br />
+        <br />
+
+        <div style="float:left;">
+          <input type="radio"
+                 ng-model="matchType"
+                 name="matchType"
+                 id="exactMatch"
+                 value="EXACT" />
+          <span>Exact Match</span>
+        </div>
+
+        <div style="float:left;">
+          <input type="radio"
+                 ng-model="matchType"
+                 name="matchType"
+                 value="Any Permutation"
+                 id="ANY" />
+          <span>Any Permutation</span>
+        </div>
+
+        <br />
+        <br />
+        <br />
+
+        <div style="float:left;">
+
+          <input required
+                 id="digitOne"
+                 name="digitOne"
+                 maxlength="1"
+                 size="1"
+                 ng-model="digitOne" />
+
+          <input required
+                 id="digitTwo"
+                 name="digitTwo"
+                 maxlength="1"
+                 size="1"
+                 ng-model="digitTwo" />
+
+          <input required
+                 id="digitThree"
+                 name="digitThree"
+                 maxlength="1"
+                 size="1"
+                 ng-model="digitThree" />
+
+          <input id="digitFour"
+                 name="digitFour"
+                 maxlength="1"
+                 size="1"
+                 ng-model="digitFour"
+                 ng-required="pickQuantity==4"
+                 ng-show="pickQuantity==4" />
+        </div>
+        
+        <br />
+        <br />
+
+        <input type="submit" id="submit" value="Place Bet" />
+
+      </form>
+
+    </div>
+
+  </body>
+
+</html>
